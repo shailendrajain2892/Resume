@@ -1,0 +1,243 @@
+%-------------------------------------
+% LaTeX Resume for Software Engineers
+% Author : Leslie Cheng
+% License : MIT
+%-------------------------------------
+
+\documentclass[letterpaper,12pt]{article}[leftmargin=*]
+
+\usepackage[empty]{fullpage}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fontawesome}
+\usepackage[sfdefault,light]{FiraSans}
+\usepackage[T1]{fontenc}
+\usepackage{anyfontsize}
+\usepackage{xcolor}
+
+%-------------------------------------------------- SETTINGS HERE --------------------------------------------------
+% Header settings
+\def \fullname {Shailendra Jain}
+\def \subtitle {}
+
+\def \linkedinicon {\faLinkedin}
+\def \linkedinlink {https://www.linkedin.com/in/shailendrajain28/}
+\def \linkedintext {/shailendrajain28}
+
+\def \phoneicon {\faPhone}
+\def \phonetext {+91-9967219623}
+
+\def \emailicon {\faEnvelope}
+\def \emaillink {mailto:shailendrajain28@gmail.com}
+\def \emailtext {shailendrajain28@gmail.com}
+
+\def \githubicon {\faGithub}
+\def \githublink {https://github.com/shailendrajain2892}
+\def \githubtext {/shailendrajain2892}
+
+
+\def \headertype {\doublecol} % \singlecol or \doublecol
+
+% Misc settings
+\def \entryspacing {-0pt}
+
+\def \bulletstyle {\faAngleRight}
+
+% Define colours
+\definecolor{primary}{HTML}{000000}
+\definecolor{secondary}{HTML}{0D47A1}
+\definecolor{accent}{HTML}{263238}
+\definecolor{links}{HTML}{1565C0}
+
+%------------------------------------------------------------------------------------------------------------------- 
+
+% Defines to make listing easier
+\def \linkedin {\linkedinicon \hspace{3pt}\href{\linkedinlink}{\linkedintext}}
+\def \phone {\phoneicon \hspace{3pt}{ \phonetext}}
+\def \email {\emailicon \hspace{3pt}\href{\emaillink}{\emailtext}}
+\def \github {\githubicon \hspace{3pt}\href{\githublink}{\githubtext}}
+\def \website {\websiteicon \hspace{3pt}\href{\websitelink}{\websitetext}}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.1in}
+
+% Define the link colours
+\hypersetup{
+    colorlinks=true,
+    urlcolor=links,
+}
+
+% Set the margin alignment 
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%-------------------------
+% Custom commands
+
+% Sections
+\renewcommand{\section}[2]{\vspace{5pt}
+  \colorbox{secondary}{\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{7pt}#2}}}
+}
+
+% Entry start and end, for spacing
+\newcommand{\resumeEntryStart}{\begin{itemize}[leftmargin=2.5mm]}
+\newcommand{\resumeEntryEnd}{\end{itemize}\vspace{\entryspacing}}
+
+% Itemized list for the bullet points under an entry, if necessary
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=4.5mm]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% Resume item
+\renewcommand{\labelitemii}{\bulletstyle}
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+% Entry with title, subheading, date(s), and location
+\newcommand{\resumeEntryTSDL}[4]{
+  \vspace{-1pt}\item[]
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+      \textit{\color{accent}\small#3} & \textit{\color{accent}\small#4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+% Entry with title and date(s)
+\newcommand{\resumeEntryTD}[2]{
+  \vspace{-1pt}\item[]
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+% Entry for special (skills)
+\newcommand{\resumeEntryS}[2]{
+  \item[]\small{
+    \textbf{\color{primary}#1 }{ #2 \vspace{-6pt}}
+  }
+}
+
+% Double column header
+\newcommand{\doublecol}[6]{
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    {
+      \begin{tabular}[c]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} % You could add a subtitle here
+      \end{tabular}
+    } & {
+      \begin{tabular}[c]{l@{\hspace{1.5em}}l}
+        {\small#4} & {\small#1} \\
+        {\small#5} & {\small#2} \\
+        {\small#6} & {\small#3}
+      \end{tabular}
+    }
+  \end{tabular*}
+}
+
+% Single column header
+\newcommand{\singlecol}[6]{
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    {
+      \begin{tabular}[b]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} % You could add a subtitle here
+      \end{tabular}
+    } & {
+      \begin{tabular}[c]{l}
+        {\small#1} \\
+        {\small#2} \\
+        {\small#3} \\
+        {\small#4} \\
+        {\small#5} \\
+        {\small#6}
+      \end{tabular}
+    }
+  \end{tabular*}
+}
+
+\begin{document}
+%-------------------------------------------------- BEGIN HERE --------------------------------------------------
+
+%---------------------------------------------------- HEADER ----------------------------------------------------
+
+\headertype{\linkedin}{\github}{\website}{\phone}{\email}{} % Set the order of items here
+\vspace{-10pt} % Set a negative value to push the body up, and the opposite
+%-------------------------------------------------- Summary  --------------------------------------------------
+\section{\faClipboard}{Summary}
+
+  \resumeEntryStart
+  \bigbreak
+{High-energy, confident professional with an infectious enthusiasm for technology, with 8  years of  experience in developing robust code in python, C, C++ for high-volume businesses. DevOps Experience in deploying application using Kubernetes and AWS. Dedicated for work and eager to learn new things. Ready to accept new challenges with my sincere hard work and solve business problems.}
+  \resumeEntryEnd
+%-------------------------------------------------- EDUCATION --------------------------------------------------
+\section{\faGraduationCap}{Education}
+
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Jabalpur Engineering College}{2009 -- 2013}
+      {Bachelor of Engineering, Information Technology}{Jabalpur, Madhya Pradesh}
+  \resumeEntryEnd
+%-------------------------------------------------- PROGRAMMING SKILLS --------------------------------------------------
+\section{\faGears}{Skills}
+ \resumeEntryStart
+  \resumeEntryS{Programming Languages } {Python, Machine Learning, C, C++, Kubernetes, AWS, Flask, SQL}
+ \resumeEntryEnd
+%-------------------------------------------------- EXPERIENCE --------------------------------------------------
+\section{\faPieChart}{Experience}
+
+\resumeEntryStart
+    \resumeEntryTSDL
+      {Machine Learning Masters Program from Grey Atom School of Data Science}{Jan 2019 - June 2019}
+  \resumeEntryEnd
+  
+ \resumeEntryStart
+    \resumeEntryTSDL
+      {JP Morgan Chase}{Feb 2020 -- Present}
+      {Associate, Python Software Engineer, DevOps, ML Data Engineer }{Mumbai, Maharashtra}
+    \resumeItemListStart
+      \resumeItem {I am working here as a software engineer. I need to Develop an application to host various Machine Learning Model which needs to be served on real time basis. I need to deploy these application into the production using kubernetes. I also work on developing data pipeline which then later used by ML Models. }
+      \resumeItem {My roles in this team as a Software engineer.  I need to interact with different data scientist to understand their ML model then design an application to deploy it into the production. my role requires from developing an applicatin to deploying it into the production.}
+    \resumeItemListEnd
+   \resumeEntryEnd
+    \resumeEntryStart
+    \resumeEntryTSDL
+      {Bank Of America}{June 2017 -- Feb 2020}
+      {Senior Software Engineer, Python Developer }{Mumbai, Maharashtra}
+    \resumeItemListStart
+      \resumeItem {Working on development project where we are trying to build One Trading Application for the all line of
+business, instead of multiple, which can save a lot of operational cost of managing multiple Trading
+Applications }
+      \resumeItem {My roles in this team as a python developer. I get involved in development, testing and deployment through
+Agile process. We use here Jira, Bit Bucket, and SVN tools to do the development.
+}
+    \resumeItemListEnd
+   \resumeEntryEnd
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Accenture}{Feb. 2016 -- June 2017}
+      {Software Engineer}{Mumbai, Maharashtra}
+    \resumeItemListStart
+      \resumeItem {Maintained a desktop application, which is used by MetLife client for displaying Illustration for their customer. }
+      \resumeItem {I was a software developer in this project. I was responsible here for requirement understanding, providing estimation, software development, testing, and deployment and build management via version control system.}
+    \resumeItemListEnd
+  \resumeEntryEnd
+
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Tata Consultance Services}{June 2013 -- Feb. 2016}
+      {System Engineer}{Mumbai, Maharashtra}
+    \resumeItemListStart
+        \resumeItem {I had worked in TCS for NSE client for Trading system software. }
+\resumeItem {In this project, I have worked as a software developer in C, C++, STL, Socket programming, multithreading, and SMFS database on Linux machine. I have good command over Linux command and shell scripting. I have acquainted knowledge of capital market trading system. I have successfully passed NSE capital market beginners module exam.}
+    \resumeItemListEnd
+  \resumeEntryEnd
+
+\end{document}
